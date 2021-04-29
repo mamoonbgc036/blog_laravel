@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}">
     <title>Document</title>
 </head>
 <body>
@@ -13,7 +14,7 @@
 			<div id="leftMenu">
 				<ul>
 					<li><a href="">Home</a></li>
-					<li><a href="">Dashboard</a></li>
+					<li><a href="{{ route('dashboard') }}">Dashboard</a></li>
 				</ul>
 			</div>
 			<div id="rightMenu">
