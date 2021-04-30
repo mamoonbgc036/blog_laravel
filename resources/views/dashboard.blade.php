@@ -1,9 +1,9 @@
 @extends('layouts.app')
 @section('content')
     <div id="info">
-		<h2 class="text-center">Abdullah Al Mamoon</h2>
+		<h2 class="text-center">{{ auth()->user()->name }}</h2>
 		<h3 class="text-center">Dashboard</h3>
-		<h4 class="text-center"><a class="btn btn-warning" href="">Create post</a></h4>
+		<h4 class="text-center"><a class="btn btn-warning" href="{{ route('post') }}">Create post</a></h4>
 	</div>
 	<table class="table table-dark">
 	  <thead>

@@ -13,14 +13,26 @@
 		<div id="subheader">
 			<div id="leftMenu">
 				<ul>
-					<li><a href="">Home</a></li>
+					<li><a href="{{ route('home') }}">Home</a></li>
 					<li><a href="{{ route('dashboard') }}">Dashboard</a></li>
 				</ul>
 			</div>
 			<div id="rightMenu">
 				<ul>
-					<li><a href="{{ asset('login') }}">Login</a></li>
+					@auth 
+					<li><img src="{{ asset('storage/'. auth()->user()->image) }}" alt=""></li>
+					<li><a href="">{{ auth()->user()->name }}</a></li>
+					<li>
+						<form action="{{ route('logout') }}" method="post">
+							@csrf
+							<button>Logout</button>
+						</form>
+					</li>
+					@endauth
+					@guest 
+					<li><a href="{{ asset('login') }}">Login</a></li>					
 					<li><a href="{{ asset('register') }}">Register</a></li>
+					@endguest
 				</ul>
 			</div>
 		</div>

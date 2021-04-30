@@ -30,5 +30,6 @@
 			</div>
 			<button type="submit">Submit</button>
 		</form>
+		<p id="textcenter">Already have account<a href="{{ route('login') }}">Login</a></p>
 	</div>
     @endsection
