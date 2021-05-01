@@ -32,4 +32,5 @@ Route::post('/register', [RegisterController::class, 'store']);
 Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
 
 Route::get('/post', [PostController::class, 'index'])->name('post');
+Route::get('/post/{post}', [PostController::class, 'single'])->name('post.single');
 Route::post('/post', [PostController::class, 'store']);

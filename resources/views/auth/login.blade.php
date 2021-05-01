@@ -7,10 +7,16 @@
 			<div>
 				<label>Email</label>
 				<input type="text" name="email" placeholder="Your Email">
+				@error('email')
+					<p id="textRed">{{ $message }}</p>
+				@enderror
 			</div>
 			<div>
 				<label>Password</label>
 				<input type="password" name="password" placeholder="Your password">
+				@error('password')
+				<p id="textRed">{{ $message }}</p>
+				@enderror
 			</div>
 			<button type="submit">Submit</button>
 		</form>

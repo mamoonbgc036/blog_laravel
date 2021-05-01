@@ -40,6 +40,7 @@ header{
 
 #body{
 	display: flex;
+	justify-content: space-between;
 }
 
 #body img{
@@ -103,6 +104,14 @@ textarea{
 
 #rightMenu img{
 	width: 80px;
+}
+
+#textRed{
+	color: red;
+}
+
+#single{
+	text-align: center;
 }
 
 

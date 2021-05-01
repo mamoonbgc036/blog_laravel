@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Post;
 use Illuminate\Http\Request;
 
 class DashboardController extends Controller
@@ -10,6 +11,9 @@ class DashboardController extends Controller
         $this->middleware('auth');
     }
     public function index(){
-        return view('dashboard');
+        $userPosts = Post::get()->where('user_id', auth()->user()->id);
+        return view('dashboard',[
+            'userPosts'=>$userPosts
+        ]);
     }
 }

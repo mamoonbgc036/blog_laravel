@@ -16,18 +16,24 @@
 	    </tr>
 	  </thead>
 	  <tbody>
-	    <tr>
-	      <th scope="row">1</th>
-	      <td><a href="">new feature coming</a></td>
-	      <td><img src="test.png"></td>
-	      <td>5</td>
-	      <td>
-	      	<ul id="action">
-	      		<li><a class="btn btn-info" href="">Update</a></li>
-	      		<li><a class="btn btn-danger" href="">Delete</a></li>
-	      	</ul>
-	      </td>
-	    </tr>
+	  	@if($userPosts->count())
+		  @foreach($userPosts as $userPost)
+		  <tr>
+			<th scope="row">{{ $userPost->id }}</th>
+			<td><a href="">{{ $userPost->Heading }}</a></td>
+			<td><img src="{{ asset('storage/'.$userPost->image) }}"></td>
+			<td>5</td>
+			<td>
+				<ul id="action">
+					<li><a class="btn btn-info" href="">Update</a></li>
+					<li><a class="btn btn-danger" href="">Delete</a></li>
+				</ul>
+			</td>
+			</tr>
+		  @endforeach
+		@else 
+			<tr>You have no post</tr>
+		@endif
 	  </tbody>
 	</table>
 @endsection

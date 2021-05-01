@@ -9,7 +9,7 @@ use App\Http\Controllers\Controller;
 class PostController extends Controller
 {
     public function __construct(){
-        $this->middleware('auth');
+        $this->middleware('auth')->except('single');
     }
     public function index(){
         return view('posts.post');
@@ -38,5 +38,13 @@ class PostController extends Controller
                 'image' => $request->image->store('postImage', 'public')
             ]);
         }
+
+        return redirect()->route('dashboard');
+    }
+
+    public function single(Post $post){
+        return view('posts.single', [
+            'post'=>$post
+        ]);
     }
 }
