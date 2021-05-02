@@ -114,4 +114,8 @@ textarea{
 	text-align: center;
 }
 
+#postLike{
+	display: flex;
+}
+
 

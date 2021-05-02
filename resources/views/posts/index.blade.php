@@ -14,14 +14,23 @@
 					<img src="{{ asset('storage/'.$post->image) }}">
 				</div>
 			</div>
-			<p>
-				@auth 
-				<form action="{{ route('like',$post->id) }}" method="post">
-					@csrf
-					<button type="submit">Like</button>
-				</form>
-				@endauth
-			</p>
+			<div id="postLike">
+				<p>
+					@auth 
+						@if($post->likedBy(auth()->user()))
+						<form action="">
+							<button>Dislike</button>
+						</form>
+						@else 
+						<form action="{{ route('like',$post->id) }}" method="post">
+							@csrf
+							<button type="submit">Like</button>
+						</form>
+						@endif 
+					@endauth
+				</p>
+				<P>{{ $post->like->count() }} {{ Str::plural('like', $post->like->count()) }}</P>
+			</div>
 		</div>
 		<hr> 
 		@endforeach
