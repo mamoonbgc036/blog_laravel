@@ -7,6 +7,7 @@ use App\Http\Controllers\post\PostController;
 use App\Http\Controllers\auth\LoginController;
 use App\Http\Controllers\auth\LogoutController;
 use App\Http\Controllers\auth\RegisterController;
+use App\Http\Controllers\post\PostlikesController;
 
 /*
 |--------------------------------------------------------------------------
@@ -34,3 +35,5 @@ Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard
 Route::get('/post', [PostController::class, 'index'])->name('post');
 Route::get('/post/{post}', [PostController::class, 'single'])->name('post.single');
 Route::post('/post', [PostController::class, 'store']);
+
+Route::post('/like/{post}', [PostlikesController::class, 'store'])->name('like');

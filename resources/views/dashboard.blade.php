@@ -20,7 +20,7 @@
 		  @foreach($userPosts as $userPost)
 		  <tr>
 			<th scope="row">{{ $userPost->id }}</th>
-			<td><a href="">{{ $userPost->Heading }}</a></td>
+			<td><a href="{{ route('post.single',$userPost) }}">{{ $userPost->Heading }}</a></td>
 			<td><img src="{{ asset('storage/'.$userPost->image) }}"></td>
 			<td>5</td>
 			<td>
