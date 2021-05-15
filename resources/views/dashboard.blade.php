@@ -22,11 +22,15 @@
 			<th scope="row">{{ $userPost->id }}</th>
 			<td><a href="{{ route('post.single',$userPost) }}">{{ $userPost->Heading }}</a></td>
 			<td><img src="{{ asset('storage/'.$userPost->image) }}"></td>
-			<td>5</td>
+			<td>{{ $userPost->like->count() }}</td>
 			<td>
 				<ul id="action">
-					<li><a class="btn btn-info" href="">Update</a></li>
-					<li><a class="btn btn-danger" href="">Delete</a></li>
+					<li><a class="btn btn-info" href="{{ route('edit', $userPost) }}">Update</a></li>
+					<li><form action="{{ route('post.destroy', $userPost) }}" method="post">
+						@csrf
+						@method('DELETE')
+						<button class="btn btn-danger" type="submit">Delete</button>
+					</form></li>
 				</ul>
 			</td>
 			</tr>

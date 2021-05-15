@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\EditController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\post\PostController;
@@ -33,7 +34,11 @@ Route::post('/register', [RegisterController::class, 'store']);
 Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
 
 Route::get('/post', [PostController::class, 'index'])->name('post');
+Route::delete('/post/{post}', [PostController::class, 'destroy'])->name('post.destroy');
 Route::get('/post/{post}', [PostController::class, 'single'])->name('post.single');
 Route::post('/post', [PostController::class, 'store']);
+
+Route::get('/edit/{post}', [EditController::class, 'index'])->name('edit');
+Route::post('/edit', [EditController::class, 'store'])->name('edit.update');
 
 Route::post('/like/{post}', [PostlikesController::class, 'store'])->name('like');

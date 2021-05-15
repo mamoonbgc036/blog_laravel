@@ -25,7 +25,7 @@
 					<li>
 						<form action="{{ route('logout') }}" method="post">
 							@csrf
-							<button>Logout</button>
+							<button id="log">Logout</button>
 						</form>
 					</li>
 					@endauth
@@ -49,5 +49,21 @@
 		</div>
 	</header>
     @yield('content')
+	<script src="{{ asset('js/jquery-3.6.0.js') }}"></script>
+	<script type="text/javascript">
+		// let link = "{{ url('dashboard') }}";
+		// console.log(link);
+		// $.ajaxSetup({
+		// 	headers : { 'X-CSRF-Token' : '{{ csrf_token() }}' }
+		// });
+
+		// function getRecord(){
+		// 	$.get(link,function(data,status){
+		// 		console.log(data);
+		// 	})
+		// }
+
+		// getRecord();
+	</script>
 </body>
 </html>
